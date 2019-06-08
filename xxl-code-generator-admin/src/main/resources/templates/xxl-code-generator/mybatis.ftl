@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Dao路径.${classInfo.className}Dao">
+<mapper namespace="Dao路径.${classInfo.className}Mapper">
 
     <resultMap id="${classInfo.className}" type="Model路径.${classInfo.className}" >
     <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
@@ -68,13 +68,13 @@
         WHERE `id` = ${r"#{id}"}
     </select>
 
-    <select id="pageList" parameterType="java.util.Map" resultMap="${classInfo.className}">
+    <select id="pageList" parameterType="com.demo.model.PageParam" resultMap="${classInfo.className}">
         SELECT <include refid="Base_Column_List" />
         FROM ${classInfo.tableName}
         LIMIT ${r"#{offset}"}, ${r"#{pagesize}"}
     </select>
 
-    <select id="pageListCount" parameterType="java.util.Map" resultType="int">
+    <select id="pageListCount" parameterType="com.demo.model.PageParam" resultType="int">
         SELECT count(1)
         FROM ${classInfo.tableName}
     </select>

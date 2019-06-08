@@ -41,13 +41,13 @@ public class IndexController {
         try {
 
             if (StringUtils.isBlank(tableSql)) {
-                return new ReturnT<Map<String, String>>(ReturnT.FAIL_CODE, "表结构信息不可为空");
+                return new ReturnT<>(ReturnT.FAIL_CODE, "表结构信息不可为空");
             }
 
             // parse table
             ClassInfo classInfo = CodeGeneratorTool.processTableIntoClassInfo(tableSql);
 
-            // code genarete
+            // code generate
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("classInfo", classInfo);
 

@@ -1,9 +1,9 @@
 import java.util.Map;
 
 /**
-* ${classInfo.classComment}
-*
-* Created by xuxueli on '${.now?string('yyyy-MM-dd HH:mm:ss')}'.
+* @description: ${classInfo.classComment}
+* @author: gyk
+* @date: created in '${.now?string('yyyy-MM-dd HH:mm:ss')}'
 */
 public interface ${classInfo.className}Service {
 
@@ -30,6 +30,6 @@ public interface ${classInfo.className}Service {
     /**
     * 分页查询
     */
-    public Map<String,Object> pageList(int offset, int pagesize);
+    public PageModel<${classInfo.className}> pageList(PageParam pageParam);
 
 }
